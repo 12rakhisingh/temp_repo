@@ -62,7 +62,7 @@ d3.json(link).then(function (data) {
         for (var i = 0; i < depthLevels.length; i++) {
             // Using 'markerDepthColor' function to get colors
             div.innerHTML +=
-                "<i style='background: " + markerDepthColor(depth[i] + 1) + "'></i> " +
+                "<i style='background: " + markerDepthColor(depthLevels[i] + 1) + "'></i> " +
                 depthLevels[i] + (depthLevels[i + 1] ? "&ndash;" + depthLevels[i + 1] + "<br>" : "+");
         }
         return div;
