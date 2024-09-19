@@ -51,12 +51,39 @@ d3.json(link).then(function (data) {
         }
     }).addTo(myWorldMap);
 
+    // // Adding legend to the bottomright of the map
+    // var legend = L.control({ position: "bottomright" });
+
+    // legend.onAdd = function () {
+    //     var div = L.DomUtil.create("div", "info legend"),
+    //         depthLevels = [-10, 10, 30, 50, 70, 90]
+
+    //     console.log("Legend depthLevels:", depthLevels);
+
+    //     // Legend title
+    //     div.innerHTML += "<p>Depth Legend</p>";
+
+    //     // Loop through the intervals and generate a label with a colored square for each interval
+    //     for (var i = 0; i < depthLevels.length; i++) {
+    //         // Using 'markerDepthColor' function to get colors
+    //         div.innerHTML +=
+    //             "<i style='background: " + markerDepthColor(depthLevels[i] + 1) + "'></i> " +
+    //             depthLevels[i] + (depthLevels[i + 1] ? "&ndash;" + depthLevels[i + 1] + "<br>" : "+");
+    //     }
+    //     return div;
+    // };
+
+    // console.log("ADdding Legend depthLevels:", depthLevels);
+    // // Add the legend to the map
+    // legend.addTo(myWorldMap);
+
     // Adding legend to the bottomright of the map
     var legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function () {
         var div = L.DomUtil.create("div", "info legend"),
-            depthLevels = [-10, 10, 30, 50, 70, 90]
+            depthLevels = [-10, 10, 30, 50, 70, 90],
+            colors = ["#ffffcc", "#ffeda0", "#fed976", "#feb24c", "#fd8d3c", "#fc4e2a"];
 
         console.log("Legend depthLevels:", depthLevels);
 
@@ -65,15 +92,15 @@ d3.json(link).then(function (data) {
 
         // Loop through the intervals and generate a label with a colored square for each interval
         for (var i = 0; i < depthLevels.length; i++) {
-            // Using 'markerDepthColor' function to get colors
+            console.log("Legend color for depth:", depthLevels[i], "is:", colors[i]);
+
             div.innerHTML +=
-                "<i style='background: " + markerDepthColor(depthLevels[i] + 1) + "'></i> " +
+                "<i style='background: " + colors[i] + "; width: 20px; height: 20px; display: inline-block;'></i> " +
                 depthLevels[i] + (depthLevels[i + 1] ? "&ndash;" + depthLevels[i + 1] + "<br>" : "+");
         }
         return div;
     };
 
-    console.log("ADdding Legend depthLevels:", depthLevels);
     // Add the legend to the map
     legend.addTo(myWorldMap);
 });
