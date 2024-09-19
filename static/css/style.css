@@ -10,7 +10,7 @@ html {
 }
 
 /* Legend styling */
-/* .info.legend {
+.info.legend {
   padding: 6px 8px;
   font: 14px Arial, Helvetica, sans-serif;
   background: #fff;
@@ -19,13 +19,13 @@ html {
   border-radius: 5px;
   line-height: 20px;
   color: #555;
-} */
+}
 
-.info.legend i {
+/* .info.legend i {
   width: 18px;
   height: 18px;
   float: left;
   margin-right: 8px;
   opacity: 0.6;
-}
+} */
 
